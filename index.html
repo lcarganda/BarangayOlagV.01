@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Barangay Profiling</title>
+    <!-- Link to Inter font for consistency with index.html -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <!-- Link to Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to custom CSS for this page -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="flex items-center justify-center h-screen w-screen overflow-hidden text-gray-800">
+
+    <!-- Background Image Container -->
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/6ee7b7/1f2937?text=Barangay+Scene');">
+        <!-- Overlay to make text readable -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <!-- Main Content Box - Centered -->
+    <div class="relative z-10 p-8 sm:p-12 bg-white bg-opacity-90 rounded-2xl shadow-xl max-w-lg w-11/12 text-center transform transition-all duration-300 scale-95 opacity-0 animate-fadeInUp">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+            Welcome to <span class="text-green-600">Olag Pequiño</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-700 mb-8">
+            Your comprehensive Barangay Profiling System.
+        </p>
+        <button id="enterButton" class="px-8 py-4 bg-green-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105">
+            Enter System
+        </button>
+    </div>
+
+    <!-- Link to custom JavaScript for this page -->
+    <script src="index.js"></script>
+    <script>
+        document.getElementById('enterButton').addEventListener('click', function() {
+            window.location.href = 'index.php';
+        });
+    </script>
+
+    <!--
+        Important:
+        - Replace 'https://placehold.co/1920x1080/6ee7b7/1f2937?text=Barangay+Scene'
+          with an actual image URL of your barangay, its officials, or a relevant local scene.
+          Example: <img src="path/to/your/barangay_photo.jpg">
+        - The image should be high-resolution and cover the entire screen well.
+        - The overlay opacity can be adjusted in enter.css if needed.
+    -->
+
+</body>
+</html>
