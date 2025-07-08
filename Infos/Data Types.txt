@@ -1,0 +1,84 @@
+INDIVIDUAL {
+
+Indivual ID : Int
+
+// Basic Info
+Surname : String
+First Name : String
+Middle Name : String
+Gender : Char
+Birth Date : Date
+Civil Status : String
+Blood Type : Char
+Religion : String
+
+
+// Status
+Salary Income : Int
+Solo Parent? : Boolean
+With Disability : Boolean
+isStudent? : Boolean
+	true -> School Attending : String 
+		isScholar? : Boolean
+educational attainment : String
+isAlive : Boolean
+
+// Additional Info
+Register Voter : Boolean
+OFW? : Boolean
+Member Of SSS? : Boolean
+Member of GSIS? : Boolean
+Member of Philhealth? : Boolean
+Working for? : String
+is4ps Beneficiary? : Boolean
+
+
+}
+
+
+HOUSEHOLD {
+
+Household ID : Int
+
+// Basic Info
+HouseHold head : String (reference to individual ID)
+WhatWaterSource : String
+hasToilet? : Boolean
+hasElectricity? : Boolean
+mainSourceOfCookingFuel :: String
+
+
+// Statues
+Tennure Status : String
+Household Source of income : String
+Household Source of income : Int
+Type of Household : String
+Type of House Material : String
+
+
+}
+
+
+
+Families {
+
+Family Id : Int
+MainFamily Surname : String
+Household Count : Int
+
+
+}
+
+
+
+
+Zones {
+	
+household Count : Int
+biggest family : String
+Individual Count : Int
+Description : String
+Barangay Official Assigned : String (reference to individual ID)
+
+
+}

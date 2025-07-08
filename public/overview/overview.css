@@ -1,0 +1,268 @@
+/* Custom colors to match the theme */
+:root {
+    --primary-dark-green: #1E4F39; /* Darker green for sidebar and header */
+    --secondary-green: #2F7C56; /* Slightly lighter green for cards/buttons */
+    --light-green: #4CAF50; /* A general green, if needed */
+    --text-light: #F3F4F6; /* Light gray for text on dark backgrounds */
+    --text-dark: #374151; /* Dark gray for text on light backgrounds */
+    --text-medium: #4b5563; /* Medium gray for labels */
+    --text-strong: #1a202c; /* Strong dark for values */
+    --border-gray: #d1d5db; /* A standard border color, from individuals.css */
+    --background-light: #f9fafb; /* Light background for inputs/cards, from individuals.css */
+    --border-gray-200: #e5e7eb; /* From families.css previous version, keeping it if used */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* From families.css previous version */
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* From families.css previous version */
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Added for consistency */
+}
+
+/* Explicit Tailwind-like classes using custom properties */
+.bg-primary-dark-green { background-color: var(--primary-dark-green); }
+.bg-secondary-green { background-color: var(--secondary-green); }
+.text-text-light { color: var(--text-light); }
+.text-text-dark { color: var(--text-dark); }
+.ring-primary-dark-green:focus {
+    --tw-ring-color: var(--primary-dark-green);
+}
+
+
+/* Global Background Color */
+body {
+    background-color: #f3f4f6 !important; /* Light Grey Background */
+    font-family: 'Inter', sans-serif; /* Ensuring consistent font */
+    /* Prevent horizontal scroll when mobile menu is open */
+    overflow-x: hidden; 
+}
+
+/* Sidebar Navigation Hover Effect */
+aside nav a {
+    color: var(--text-light); /* Default text color for sidebar links */
+}
+
+aside nav a:hover {
+    background-color: var(--secondary-green); /* Use secondary green for hover */
+    color: var(--text-light); /* Ensure text remains light */
+}
+
+/* Logo Styling - Consistent with individuals.css */
+#logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb; /* Light border around logo */
+}
+
+/* Adjust line height for specific text sizes if needed, from individuals.css */
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.2rem !important; /* Standard line-height for text-xl */
+    padding: 0px 0px 10px 0px;
+}
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+/* Main content area styling */
+main {
+    background-color: #f3f4f6; /* Light grey background for main content */
+    /* On desktop, main content should be next to sidebar */
+    /* On mobile, it should be full width, and sidebar slides over it */
+}
+
+/* Header specific styles to prevent overlap */
+header {
+    position: sticky; /* Make header sticky */
+    top: 0; /* Stick to the top */
+    z-index: 20; /* Ensure it's above content but below sidebar/overlay */
+    width: 100%; /* Ensure it takes full width */
+}
+
+/* Dashboard Content Area (Scrollable) */
+.flex-1.overflow-y-auto.p-6.space-y-6 {
+    /* This div is meant to be scrollable, but its parent (main) might need min-height */
+    /* No direct changes here, but parent flex structure is key */
+}
+
+
+/* Card styling */
+section > div {
+    background-color: white;
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: var(--shadow-lg); /* shadow-lg */
+    padding: 1.5rem; /* p-6 */
+}
+
+/* Bar Chart Specific Styles */
+.bar-chart-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; /* Bars start from the bottom */
+    height: 120px; /* Fixed height for the chart area */
+    border-bottom: 1px solid var(--border-gray); /* Baseline for bars */
+    padding-bottom: 5px; /* Space for value labels */
+    margin-bottom: 10px; /* Space between chart and labels */
+}
+
+.bar {
+    width: 25px; /* Fixed width for each bar */
+    background-color: var(--primary-dark-green); /* Default bar color */
+    border-radius: 0.25rem; /* rounded-md */
+    position: relative; /* For value label positioning */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Value label at the top of the bar */
+    transition: height 0.3s ease-out; /* Smooth transition for height changes */
+}
+
+.bar-value {
+    color: var(--text-dark); /* Color of the value text */
+    font-size: 0.75rem; /* text-xs */
+    font-weight: 600; /* font-semibold */
+    position: absolute;
+    top: -20px; /* Position above the bar */
+    text-align: center;
+    width: 100%;
+}
+
+/* Pie Chart Specific Styles */
+.pie-chart-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack pie chart and legend vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center;
+    position: relative; /* THIS IS CRUCIAL for absolute positioning of the total number */
+    padding-bottom: 20px; /* Give some space for the total number */
+    width: 100%; /* Ensure wrapper takes full width to allow centering */
+}
+
+.pie-chart {
+    width: 160px; /* Increased size for better visibility */
+    height: 160px; /* Increased size for better visibility */
+    border-radius: 50%;
+    background-color: #e0e0e0; /* Default grey if no data */
+    position: relative; /* Essential for total number positioning within the chart circle */
+    display: flex; /* To center the total number inside */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem; /* Larger font for the center number */
+    font-weight: bold;
+    color: var(--text-dark); /* Color of the center number */
+    box-shadow: var(--shadow-md); /* Add shadow for depth */
+}
+
+/* This class is for the total number displayed inside the pie chart. */
+.pie-chart-total-number {
+    z-index: 10; /* Ensure it's above the background gradient */
+    /* No need for absolute inset-0 here if pie-chart itself is flexed and centering */
+}
+
+.pie-legend {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for many items */
+    justify-content: center; /* Center legend items */
+    gap: 1rem; /* Space between legend items */
+    margin-top: 1rem;
+    font-size: 0.875rem; /* text-sm */
+    color: var(--text-dark);
+    max-width: 100%; /* Ensure legend wraps if too wide */
+}
+
+.pie-legend-item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Prevent wrapping within an item */
+}
+
+.pie-legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+    display: inline-block;
+}
+
+/* Mobile Responsiveness Styles */
+
+/* Hide sidebar by default on small screens, show on large screens */
+#mainSidebar {
+    /* Fixed position and off-screen by default for mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 50; /* Ensure it's above other content when open */
+}
+
+/* Class added by JS when mobile menu is open */
+#mainSidebar.open {
+    transform: translateX(0);
+}
+
+/* Overlay for mobile menu */
+#mobileMenuOverlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 40; /* Below sidebar, above main content */
+}
+
+#mobileMenuOverlay.open {
+    display: block;
+}
+
+/* Show hamburger button on small screens, hide on large screens */
+#mobileMenuButton {
+    display: block; /* Show by default for mobile */
+}
+
+/* Adjust main content for desktop view */
+@media (min-width: 1024px) { /* Tailwind's 'lg' breakpoint */
+    body {
+        overflow-x: hidden; /* Prevent horizontal scroll on desktop too */
+    }
+    #mainSidebar {
+        position: relative; /* Back to normal flow on desktop */
+        transform: translateX(0); /* Ensure it's visible */
+        width: 64; /* Tailwind's w-64 */
+        flex-shrink: 0; /* Prevent it from shrinking */
+    }
+    #mobileMenuButton {
+        display: none; /* Hide hamburger button on desktop */
+    }
+    #mobileMenuOverlay {
+        display: none !important; /* Ensure overlay is hidden on desktop */
+    }
+    /* No need for lg:ml-64 on main, as sidebar is now relative */
+}
+
+@media (max-width: 640px) {
+    .bar-chart-container, .pie-chart-wrapper {
+        min-width: 0;
+        overflow-x: auto;
+    }
+    .rounded-2xl {
+        border-radius: 1rem;
+    }
+    .shadow-lg {
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    }
+}
+
+/* Utility classes for text colors (if not using Tailwind directly) */
+.text-blue-500 { color: #3b82f6; }
+.text-green-500 { color: #22c55e; }
+.text-purple-500 { color: #a855f7; }
+.text-pink-500 { color: #ec4899; }
+.text-yellow-500 { color: #f59e0b; }
+.text-indigo-500 { color: #6366f1; }
+.text-blue-400 { color: #60a5fa; }
+.text-yellow-400 { color: #facc15; }
+.text-purple-400 { color: #c084fc; }
+
+
+

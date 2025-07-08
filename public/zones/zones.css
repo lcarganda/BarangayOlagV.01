@@ -1,0 +1,507 @@
+/* Custom colors to match the theme */
+:root {
+    --primary-dark-green: #1E4F39; /* Darker green for sidebar and header */
+    --secondary-green: #2F7C56; /* Slightly lighter green for cards/buttons */
+    --light-green: #4CAF50; /* A general green, if needed */
+    --text-light: #F3F4F6; /* Light gray for text on dark backgrounds */
+    --text-dark: #374151; /* Dark gray for text on light backgrounds */
+    --text-medium: #4b5563; /* Medium gray for labels */
+    --text-strong: #1a202c; /* Strong dark for values */
+    --border-gray: #d1d5db; /* A standard border color */
+    --background-light: #f9fafb; /* Light background for inputs/cards */
+    --border-gray-200: #e5e7eb; /* From families.css previous version, keeping it if used */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Tailwind-like classes for custom colors */
+.bg-primary-dark-green { background-color: #1E4F39 !important; }
+.bg-secondary-green { background-color: var(--secondary-green); }
+.text-text-light { color: var(--text-light); }
+.text-text-dark { color: var(--text-dark); }
+.ring-secondary-green:focus {
+    --tw-ring-color: var(--secondary-green);
+}
+
+
+/* --- General Form and Modal Styling (Harmonized with households.css) --- */
+
+/* Style for general form groups */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Styling for all text inputs, selects, and textareas within modals */
+#zoneModal input[type="text"],
+#zoneModal textarea,
+#zoneModal select {
+    color: var(--text-strong) !important;
+    background-color: var(--background-light) !important;
+    border-color: var(--border-gray) !important;
+    padding: 0.625rem 0.875rem !important;
+    border-radius: 0.375rem !important;
+    font-size: 0.875rem !important;
+}
+
+/* Style for placeholders to make them visible but distinct */
+#zoneModal input::placeholder,
+#zoneModal textarea::placeholder {
+    color: var(--text-medium) !important;
+    opacity: 1 !important;
+}
+
+/* Improve readability for modal labels */
+#zoneModal label {
+    color: var(--text-medium) !important;
+    font-weight: 500 !important;
+}
+
+/* --- Custom Button Styles (matching theme colors and households.css buttons) --- */
+.btn-primary {
+    background-color: var(--primary-dark-green);
+    color: var(--text-light);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+    transition: background-color 200ms ease-in-out;
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #286A4C;
+}
+
+.btn-secondary {
+    background-color: #d1d5db;
+    color: #374151;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+    transition: background-color 200ms ease-in-out;
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #9ca3af;
+}
+
+/* General modal overlay styling (consistent with households.css) */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(107, 114, 128, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 40;
+}
+
+/* Custom modal (for alerts/confirmations) needs higher z-index */
+#customModal {
+    z-index: 50;
+}
+
+/* General modal container styling (consistent with households.css) */
+.modal-container {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    margin: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Modal header with close button (consistent with households.css) */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.modal-header button {
+    color: #6b7280;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.modal-header button:hover {
+    color: #4b5563;
+}
+
+/* Specific styling for scrollbar in main content area */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-green);
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #286A4C;
+}
+
+/* Adjustments for the main content area layout */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Allow scrolling for main content if needed */
+}
+
+/* Table container and table styling */
+.table-container {
+    max-height: calc(100vh - 250px); /* Adjust based on header/footer height */
+    overflow-y: auto;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg); /* Added shadow to match households table */
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+th, td {
+    padding: 0.75rem 1.5rem;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+th {
+    background-color: var(--background-light);
+    font-weight: 600;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+}
+
+td {
+    background-color: #ffffff;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+/* Rounded corners for the table */
+.table-container thead th:first-child { border-top-left-radius: 0.75rem; }
+.table-container thead th:last-child { border-top-right-radius: 0.75rem; }
+.table-container tbody tr:last-child td:first-child { border-bottom-left-radius: 0.75rem; }
+.table-container tbody tr:last-child td:last-child { border-bottom-right-radius: 0.75rem; }
+
+
+/* Action buttons styling */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+.action-buttons button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s ease;
+}
+.action-buttons button.edit-btn {
+    background-color: #bfdbfe;
+    color: #1e40af;
+}
+.action-buttons button.edit-btn:hover {
+    background-color: #93c5fd;
+}
+.action-buttons button.delete-btn {
+    background-color: #fecaca;
+    color: #991b1b;
+}
+.action-buttons button.delete-btn:hover {
+    background-color: #fca5a5;
+}
+.action-buttons button.view-details-btn {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+.action-buttons button.view-details-btn:hover {
+    background-color: #a7f3d0;
+}
+
+/* Pagination - Consistent with households.css */
+.flex.justify-between.items-center.mt-6 {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    background-color: white;
+    border: 1px solid var(--border-gray);
+    border-radius: 0.375rem;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #f9fafb;
+}
+
+.pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+/* No Results Message - Consistent */
+#noZoneResults { /* Changed ID to match zones.html */
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color: #6b7280;
+}
+
+/* Specific styles for the zone details view modal */
+.details-group {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+.details-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: var(--text-medium); /* text-gray-700 */
+    min-width: 150px; /* Align labels */
+}
+.details-value {
+    color: var(--text-strong); /* text-gray-900 */
+    flex-grow: 1;
+}
+.details-section-heading {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600;
+    color: var(--primary-dark-green);
+    border-bottom: 1px solid var(--border-gray-200); /* border-gray-200 */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Ensure logo and text in sidebar header are vertically aligned */
+aside .p-6 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    text-align: left /* Center text within its div */
+}
+
+aside #logo {
+    margin-right: 10px; /* Space between logo and text */
+}
+
+aside h1 {
+    line-height: 1.2; /* Adjust line height for better appearance */
+}
+
+aside p {
+    line-height: 1.2; /* Adjust line height for better appearance */
+}
+
+/* Custom Modal Styling - Consistent with households.css */
+#customModal .bg-white,
+#zoneModal .bg-white,
+#viewZoneModal .bg-white {
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: var(--shadow-xl); /* shadow-2xl */
+}
+
+/* Adjustments for modal titles and buttons - Consistent with households.css */
+#zoneModalTitle,
+#customModalTitle {
+    color: var(--primary-dark-green);
+}
+
+#zoneModal button[type="submit"],
+#customModalConfirm {
+    background-color: var(--primary-dark-green);
+    color: var(--text-light);
+}
+
+#zoneModal button[type="submit"]:hover,
+#customModalConfirm:hover {
+    background-color: var(--secondary-green);
+}
+
+#zoneModal button[type="button"],
+#customModalCancel {
+    background-color: var(--border-gray);
+    color: var(--text-dark);
+}
+
+#zoneModal button[type="button"]:hover,
+#customModalCancel:hover {
+    background-color: #a0aec0; /* A slightly darker gray for hover */
+}
+
+/* Ensure the search input has proper padding for the icon */
+input[type="text"]#zoneSearch {
+    padding-left: 2.5rem; /* Enough space for the search icon */
+}
+
+/* Specific styling for sidebar navigation links to match the desired image */
+aside nav a {
+    padding-top: 0.75rem; /* Increased vertical padding */
+    padding-bottom: 0.75rem; /* Increased vertical padding */
+    padding-left: 1.5rem; /* Increased horizontal padding */
+    padding-right: 1.5rem; /* Increased horizontal padding */
+    text-align: left; /* Explicitly ensure left alignment for text content */
+    /* Ensure the icon and text are aligned to the start (left) within the flex container */
+    justify-content: flex-start; 
+}
+
+/* Mobile Responsiveness for Zones Page */
+
+/* Base styles for sidebar on all screens, then override for large screens */
+#mainSidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%); /* Hidden by default on mobile */
+    transition: transform 0.3s ease-in-out;
+    z-index: 50; /* Ensure it's above other content when open */
+}
+
+/* Class added by JS when mobile menu is open */
+#mainSidebar.open {
+    transform: translateX(0);
+}
+
+/* Overlay for mobile menu */
+#mobileMenuOverlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 40; /* Below sidebar, above main content */
+}
+
+#mobileMenuOverlay.open {
+    display: block;
+}
+
+/* Show hamburger button on small screens, hide on large screens */
+#mobileMenuButton {
+    display: block; /* Show by default for mobile */
+    position: fixed !important; /* Ensure fixed position is applied */
+    top: 1rem; /* Adjust as needed */
+    left: 1rem; /* Adjust as needed */
+    z-index: 999 !important; /* Increased z-index to ensure clickability */
+    cursor: pointer; /* Ensure cursor indicates it's clickable */
+    background-color: var(--primary-dark-green) !important;
+    /* REMOVED TEMPORARY DEBUGGING STYLES */
+    border: none;
+    /* background-color: transparent !important; */
+}
+
+/* Add this class to body when sidebar is open to prevent scrolling */
+body.overflow-hidden-mobile {
+    overflow: hidden;
+}
+
+
+/* Adjust main content for desktop view */
+@media (min-width: 1024px) { /* Tailwind's 'lg' breakpoint */
+    body {
+        overflow-x: hidden; /* Prevent horizontal scroll on desktop too */
+    }
+    #mainSidebar {
+        position: relative; /* Back to normal flow on desktop */
+        transform: translateX(0); /* Ensure it's visible */
+        width: 64; /* Tailwind's w-64 */
+        flex-shrink: 0; /* Prevent it from shrinking */
+    }
+    #mobileMenuButton {
+        display: none; /* Hide hamburger button on desktop */
+    }
+    #mobileMenuOverlay {
+        display: none !important; /* Ensure overlay is hidden on desktop */
+    }
+    /* No need for lg:ml-64 on main, as sidebar is now relative */
+}
+
+/* Adjust header title padding on small screens to avoid overlap with hamburger button */
+@media (max-width: 1023px) { /* Up to 'lg' breakpoint */
+    header h2 {
+        padding-left: 4rem; /* Add padding to the left of the title */
+    }
+}
+
+
+
+        /* Logo Styling - Consistent with individuals.css */
+#logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb; /* Light border around logo */
+}
+
+/* Adjust line height for specific text sizes if needed, from individuals.css */
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.2rem !important; /* Standard line-height for text-xl */
+    padding: 0px 0px 10px 0px;
+}
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+/* Sidebar Navigation Hover Effect */
+aside nav a {
+    color: var(--text-light); /* Default text color for sidebar links */
+}
+
+aside nav a:hover {
+    background-color: var(--secondary-green); /* Use secondary green for hover */
+    color: var(--text-light); /* Ensure text remains light */
+}

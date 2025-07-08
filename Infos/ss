@@ -1,0 +1,3 @@
+#mobileMenuButton, #addNewFamilyBtn {
+    background-color: var(--primary-dark-green);
+}

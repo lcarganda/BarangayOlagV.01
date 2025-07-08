@@ -1,0 +1,1113 @@
+/* Global Background Color */
+body {
+    background-color: #f3f4f6 !important; /* Light Grey Background */
+    font-family: 'Inter', sans-serif; /* Ensuring consistent font */
+}
+
+/* Custom colors to match the theme */
+:root {
+    --primary-dark-green: #1E4F39; /* Darker green for sidebar and header - adjusted to match second image */
+    --secondary-green: #38A169; /* Brighter green for selected/hover states - adjusted to match second image */
+    --light-green: #4CAF50; /* A general green, if needed */
+    --text-light: #F3F4F6; /* Light gray for text on dark backgrounds */
+    --text-dark: #374151; /* Dark gray for text on light backgrounds */
+    --text-medium: #4b5563; /* Medium gray for labels */
+    --text-strong: #1a202c; /* Strong dark for values */
+    --border-gray: #d1d5db; /* A standard border color, from individuals.css */
+    --background-light: #f9fafb; /* Light background for inputs/cards, from individuals.css */
+    --border-gray-200: #e5e7eb; /* From families.css previous version, keeping it if used */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* From families.css previous version */
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* From families.css previous version */
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* From families.css previous version */
+}
+
+/* Custom scrollbar for better aesthetics */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--background-light); /* Light background for the track */
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--secondary-green); /* Green thumb */
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark-green); /* Darker green on hover */
+}
+
+/* Responsive sidebar adjustments */
+@media (max-width: 1023px) {
+    #mainSidebar {
+        transform: translateX(-100%); /* Hidden by default on mobile */
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for mobile sidebar */
+        z-index: 50; /* Ensure it's above other content but below overlay */
+    }
+
+    #mainSidebar.open {
+        transform: translateX(0) !important; /* Slide in when open */
+    }
+
+    #mobileMenuOverlay {
+        display: block; /* Show overlay when sidebar is open */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none; /* Allow clicks through when hidden */
+    }
+
+    #mobileMenuOverlay.open {
+        opacity: 1;
+        pointer-events: auto; /* Block clicks when visible */
+    }
+
+    /* Prevent scrolling on body when mobile menu is open */
+    body.overflow-hidden-mobile {
+        overflow: hidden;
+    }
+
+    /* Adjust main content when sidebar is open on mobile */
+    #mainContent {
+        margin-left: 0 !important; /* Ensure no left margin on mobile */
+    }
+}
+/* Global Background Color */
+body {
+    background-color: #f3f4f6 !important; /* Light Grey Background */
+    font-family: 'Inter', sans-serif; /* Ensuring consistent font */
+}
+
+/* Custom colors to match the theme */
+:root {
+    --primary-dark-green: #1E4F39; /* Darker green for sidebar and header */
+    --secondary-green: #2F7C56; /* Slightly lighter green for cards/buttons */
+    --light-green: #4CAF50; /* A general green, if needed */
+    --text-light: #F3F4F6; /* Light gray for text on dark backgrounds */
+    --text-dark: #374151; /* Dark gray for text on light backgrounds */
+    --text-medium: #4b5563; /* Medium gray for labels */
+    --text-strong: #1a202c; /* Strong dark for values */
+    --border-gray: #d1d5db; /* A standard border color, from individuals.css */
+    --background-light: #f9fafb; /* Light background for inputs/cards, from individuals.css */
+    --border-gray-200: #e5e7eb; /* From families.css previous version, keeping it if used */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* From families.css previous version */
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* From families.css previous version */
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Tailwind-like classes for custom colors */
+.bg-primary-dark-green { background-color: #1E4F39 !important; }
+.bg-secondary-green { background-color: var(--secondary-green); }
+.text-text-light { color: var(--text-light); }
+.text-text-dark { color: var(--text-dark); }
+.ring-secondary-green:focus {
+    --tw-ring-color: var(--secondary-green);
+}
+
+/* Logo Styling - Consistent with individuals.css and households.css */
+#logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-right: 0px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb; /* Light border around logo */
+}
+
+/* Adjust line height for specific text sizes if needed */
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.2rem !important;
+    padding: 0px 0px 10px 0px;
+}
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+/* --- General Form and Modal Styling (Harmonized with households.css) --- */
+
+/* Style for general form groups */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Styling for all text inputs, selects, and textareas within modals */
+#familyModal input[type="text"],
+#familyModal textarea,
+#familyModal select,
+#householdModal input[type="text"],
+#householdModal textarea,
+#householdModal select,
+#selectIndividualModal input[type="text"],
+#selectFamilyModal input[type="text"],
+#selectHouseholdToAssignModal input[type="text"] {
+    color: var(--text-strong) !important;
+    background-color: var(--background-light) !important;
+    border-color: var(--border-gray) !important;
+    padding: 0.625rem 0.875rem !important;
+    border-radius: 0.375rem !important;
+    font-size: 0.875rem !important;
+}
+
+/* Style for placeholders to make them visible but distinct */
+#familyModal input::placeholder,
+#familyModal textarea::placeholder,
+#householdModal input::placeholder,
+#householdModal textarea::placeholder,
+#selectIndividualModal input::placeholder,
+#selectFamilyModal input::placeholder,
+#selectHouseholdToAssignModal input::placeholder {
+    color: var(--text-medium) !important;
+    opacity: 1 !important;
+}
+
+/* Improve readability for modal labels */
+#familyModal label,
+#householdModal label,
+#selectIndividualModal label,
+#selectFamilyModal label,
+#selectHouseholdToAssignModal label {
+    color: var(--text-medium) !important;
+    font-weight: 500 !important;
+}
+
+/* --- Custom Button Styles (matching theme colors and households.css buttons) --- */
+.btn-primary {
+    background-color: var(--primary-dark-green);
+    color: var(--text-light);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+    transition: background-color 200ms ease-in-out;
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #286A4C;
+}
+
+.btn-secondary {
+    background-color: #d1d5db;
+    color: #374151;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+    transition: background-color 200ms ease-in-out;
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #9ca3af;
+}
+
+/* General modal overlay styling (consistent with households.css) */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(107, 114, 128, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 40;
+}
+
+/* Custom modal (for alerts/confirmations) needs higher z-index */
+#customModal {
+    z-index: 100; /* Ensure it's on top of other modals */
+}
+
+/* General modal container styling (consistent with households.css) */
+.modal-container {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    margin: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Modal header with close button (consistent with households.css) */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.modal-header button {
+    color: #6b7280;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.modal-header button:hover {
+    color: #4b5563;
+}
+
+/* Specific styling for scrollbar in main content area */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-green);
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #286A4C;
+}
+
+/* Adjustments for the main content area layout */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    overflow-y: auto; /* Allow scrolling for main content if needed */
+}
+
+/* Family Card and Hierarchy Styling */
+.family-card {
+    border: 1px solid var(--border-gray);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1rem;
+    overflow: hidden; /* Ensures rounded corners apply to children */
+}
+
+.family-header {
+    background-color: var(--background-light);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-gray-200);
+}
+
+.family-header:hover {
+    background-color: #f0f0f0;
+}
+
+.family-header h3 {
+    color: var(--primary-dark-green);
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.family-header .expand-icon {
+    transition: transform 0.2s ease-in-out;
+}
+
+.family-header .expand-icon.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.households-container {
+    padding: 1rem;
+    background-color: #ffffff;
+}
+
+.household-item {
+    border: 1px solid var(--border-gray-200);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (min-width: 768px) { /* Medium screens and up */
+    .household-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.household-item p {
+    color: var(--text-dark);
+}
+
+.household-item .text-sm {
+    color: var(--text-medium);
+}
+
+/* Action buttons within family/household items */
+.family-actions button,
+.household-item button {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.edit-family-btn, .edit-household-btn {
+    background-color: #bfdbfe; /* blue-200 */
+    color: #1e40af; /* blue-800 */
+}
+.edit-family-btn:hover, .edit-household-btn:hover {
+    background-color: #93c5fd; /* blue-300 */
+}
+
+.delete-family-btn, .delete-household-btn {
+    background-color: #fecaca; /* red-200 */
+    color: #991b1b; /* red-800 */
+}
+.delete-family-btn:hover, .delete-household-btn:hover {
+    background-color: #fca5a5; /* red-300 */
+}
+
+.view-household-btn {
+    background-color: #d1fae5; /* green-100 */
+    color: #065f46; /* green-700 */
+}
+.view-household-btn:hover {
+    background-color: #a7f3d0; /* green-200 */
+}
+
+.add-household-to-family-btn {
+    background-color: var(--secondary-green);
+    color: var(--text-light); /* Changed to text-light for better contrast */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: background-color 0.2s;
+}
+.add-household-to-family-btn:hover {
+    background-color: #286A4C; /* Darker shade of secondary green */
+}
+
+/* Specific styling for household head display within household modal */
+#householdHeadNameDisplay {
+    background-color: #e2e8f0; /* gray-200 */
+    color: #4a5568; /* gray-700 */
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Specific styling for the family selection list within household modal */
+#availableFamiliesList > div,
+#availableIndividualsList > div,
+#availableHouseholdsToAssignList > div {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+    border-bottom: 1px solid var(--border-gray-200);
+}
+
+#availableFamiliesList > div:last-child,
+#availableIndividualsList > div:last-child,
+#availableHouseholdsToAssignList > div:last-child {
+    border-bottom: none;
+}
+
+#availableFamiliesList > div:hover,
+#availableIndividualsList > div:hover,
+#availableHouseholdsToAssignList > div:hover {
+    background-color: #f9fafb; /* Light hover background */
+}
+
+#householdFamilyNameDisplay {
+    display: inline-block;
+    padding: 0.4rem 0.6rem;
+    background-color: #e0f2f7; /* Light blue */
+    color: #0d7b97; /* Darker blue text */
+    border-radius: 0.3rem;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+/* Style for the select family button (within household modal) */
+#selectFamilyForHouseholdBtn {
+    background-color: #3b82f6; /* blue-500 */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+#selectFamilyForHouseholdBtn:hover {
+    background-color: #2563eb; /* blue-600 */
+}
+
+/* Style for the clear family selection button (within household modal) */
+#clearFamilySelectionBtn {
+    background-color: #ef4444; /* red-500 */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+#clearFamilySelectionBtn:hover {
+    background-color: #dc2626; /* red-600 */
+}
+
+/* Pagination styles - consistent with other pages */
+.flex.justify-between.items-center.mt-6 {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    background-color: white;
+    border: 1px solid var(--border-gray);
+    border-radius: 0.375rem;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #f9fafb;
+}
+
+.pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+/* No Results Message */
+#noFamilyResults {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color: #6b7280;
+}
+
+
+
+/* Mobile Responsiveness for Families Page */
+
+/* Base styles for sidebar on all screens, then override for large screens */
+#mainSidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%); /* Hidden by default on mobile */
+    transition: transform 0.3s ease-in-out;
+    z-index: 50; /* Ensure it's above other content when open */
+}
+
+/* Class added by JS when mobile menu is open */
+#mainSidebar.open {
+    transform: translateX(0) !important; /* Slide in when open */
+}
+
+/* Overlay for mobile menu */
+#mobileMenuOverlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 40; /* Below sidebar, above main content */
+}
+
+#mobileMenuOverlay.open {
+    display: block;
+}
+
+/* Show hamburger button on small screens, hide on large screens */
+#mobileMenuButton {
+    display: block; /* Show by default for mobile */
+    position: fixed !important; /* Ensure fixed position is applied */
+    top: 1rem; /* Adjust as needed */
+    left: 1rem; /* Adjust as needed */
+    z-index: 999 !important; /* Increased z-index to ensure clickability */
+    cursor: pointer; /* Ensure cursor indicates it's clickable */
+    border: none;
+    background-color: var(--primary-dark-green) !important;
+}
+
+/* Change icon color inside the mobile menu button for visibility */
+#mobileMenuButton .fas {
+    color: #FFFFFF; /* Changed to pure white for better visibility */
+}
+
+/* Add this class to body when sidebar is open to prevent scrolling */
+body.overflow-hidden-mobile {
+    overflow: hidden;
+}
+
+/* Adjust main content for desktop view */
+@media (min-width: 1024px) { /* Tailwind's 'lg' breakpoint */
+    body {
+        overflow-x: hidden; /* Prevent horizontal scroll on desktop too */
+    }
+    #mainSidebar {
+        position: relative; /* Back to normal flow on desktop */
+        transform: translateX(0) !important; /* Ensure it's visible */
+        width: 64; /* Tailwind's w-64 */
+        flex-shrink: 0; /* Prevent it from shrinking */
+    }
+    #mobileMenuButton {
+        display: none; /* Hide hamburger button on desktop */
+    }
+    #mobileMenuOverlay {
+        display: none !important; /* Ensure overlay is hidden on desktop */
+    }
+    /* No need for lg:ml-64 on main, as sidebar is now relative */
+}
+
+/* Adjust header title padding on small screens to avoid overlap with hamburger button */
+@media (max-width: 1023px) { /* Up to 'lg' breakpoint */
+    header h2 {
+        padding-left: 4rem; /* Add padding to the left of the title */
+    }
+}
+
+/* Styles for the household view details modal content */
+.details-section-heading {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600;
+    color: var(--primary-dark-green);
+    border-bottom: 1px solid var(--border-gray);
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: var(--text-medium);
+    font-size: 0.875rem; /* text-sm */
+    margin-bottom: 0.25rem;
+}
+
+.detail-value {
+    color: var(--text-strong);
+    font-size: 1rem; /* base text size */
+    padding: 0.5rem 0.75rem;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-gray);
+    border-radius: 0.375rem;
+    word-wrap: break-word; /* Ensure long text wraps */
+}
+
+/* Modernized Family Details Modal */
+#familyDetailsContent .fa-users,
+#familyDetailsContent .fa-home {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.07));
+}
+#familyDetailsContent .flex > div {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+#viewFamilyBasicInfo, #viewFamilyHouseholds {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.detail-label {
+    font-weight: 500;
+    color: var(--text-medium);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+.detail-value {
+    color: var(--text-strong);
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-gray);
+    border-radius: 0.375rem;
+    word-wrap: break-word;
+}
+
+
+
+        /* Logo Styling - Consistent with individuals.css */
+#logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb; /* Light border around logo */
+}
+
+/* Adjust line height for specific text sizes if needed, from individuals.css */
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.2rem !important; /* Standard line-height for text-xl */
+    padding: 0px 0px 10px 0px;
+}
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+/* Sidebar Navigation Hover Effect */
+aside nav a {
+    color: var(--text-light); /* Default text color for sidebar links */
+}
+
+aside nav a:hover {
+    background-color: var(--secondary-green); /* Use secondary green for hover */
+    color: var(--text-light); /* Ensure text remains light */
+}
+
+/* Mobile specific styles */
+@media (max-width: 640px) {
+    .family-header, .household-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+    .family-header h3, .household-item p {
+        font-size: 1rem !important;
+    }
+    .family-actions {
+        width: 100%;
+        justify-content: flex-start !important;
+    }
+}
+/* Direct styling for sidebar and header to ensure custom colors apply */
+#mainSidebar {
+    background-color: var(#1E4F39) !important;
+    color: var(--text-light) !important; /* Ensure text color is light */
+}
+
+header {
+    background-color: var(white) !important; /* Apply dark green to header */
+    color: var(--text-light) !important; /* Ensure header text is light */
+}
+
+/* General button styling */
+.btn-primary {
+    background-color: var(--primary-dark-green);
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: var(--shadow-md);
+    transition: background-color 0.2s ease-in-out;
+    font-weight: 600; /* font-semibold */
+    font-size: 1.125rem; /* text-lg */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-green); /* Use secondary-green for hover */
+}
+
+.btn-secondary {
+    background-color: #e5e7eb; /* Tailwind gray-200 */
+    color: #374151; /* Tailwind gray-700 */
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.2s ease-in-out;
+    font-weight: 600; /* font-semibold */
+    font-size: 1.125rem; /* text-lg */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-secondary:hover {
+    background-color: #d1d5db; /* Tailwind gray-300 */
+}
+
+/* Specific styles for modal buttons if different */
+#householdModal .btn-primary,
+#familyModal .btn-primary,
+#familyFilterModal .btn-primary,
+#selectIndividualModal .btn-primary,
+#selectFamilyModal .btn-primary,
+#selectHouseholdToAssignModal .btn-primary,
+#customModal .btn-primary {
+    background-color: #2563EB; /* Blue-600 for save buttons */
+    color: white;
+}
+
+#householdModal .btn-primary:hover,
+#familyModal .btn-primary:hover,
+#familyFilterModal .btn-primary:hover,
+#selectIndividualModal .btn-primary:hover,
+#selectFamilyModal .btn-primary:hover,
+#selectHouseholdToAssignModal .btn-primary:hover,
+#customModal .btn-primary:hover {
+    background-color: #1D4ED8; /* Blue-700 for hover */
+}
+
+/* Modal specific styling */
+.modal-overlay {
+    backdrop-filter: blur(5px); /* Optional: adds a blur effect to the background */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+.modal-container {
+    animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Form group spacing */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Text input styling */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-gray);
+    border-radius: 0.5rem; /* rounded-md */
+    box-shadow: var(--shadow-sm);
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--secondary-green);
+    box-shadow: 0 0 0 3px rgba(47, 124, 86, 0.2); /* Focus ring effect */
+}
+
+/* Specific styles for readonly inputs */
+input[readonly] {
+    background-color: #f9fafb; /* light gray background */
+    cursor: not-allowed;
+    color: #4b5563;
+}
+
+/* Hierarchy container specific styles */
+.family-card {
+    background-color: #ffffff;
+    border-radius: 1rem; /* rounded-xl */
+    box-shadow: var(--shadow-md);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-gray);
+}
+
+.family-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.family-title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: var(--primary-dark-green);
+}
+
+.family-actions {
+    display: flex;
+    gap: 0.5rem; /* space-x-2 */
+}
+
+.family-notes {
+    font-size: 0.9rem; /* text-sm */
+    color: var(--text-medium);
+    margin-bottom: 1rem;
+}
+
+.household-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #e5e7eb; /* dashed border for separation */
+}
+
+.household-card {
+    background-color: #f9fafb; /* light background for nested cards */
+    border-radius: 0.75rem; /* rounded-lg */
+    box-shadow: var(--shadow-sm);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb; /* gray-200 */
+}
+
+.household-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.household-title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    color: var(--text-dark);
+}
+
+.household-actions {
+    display: flex;
+    gap: 0.25rem; /* space-x-1 */
+}
+
+.household-details {
+    font-size: 0.875rem; /* text-sm */
+    color: var(--text-medium);
+}
+
+.individual-list {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dotted #e5e7eb; /* dotted border for individual list */
+}
+
+.individual-item {
+    font-size: 0.875rem; /* text-sm */
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+/* Action buttons within cards */
+.action-btn {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.action-btn:hover {
+    background-color: #f3f4f6; /* light gray hover */
+}
+
+.action-btn i {
+    font-size: 1rem;
+    color: #4b5563; /* gray-600 */
+}
+
+/* Specific colors for action buttons */
+.edit-btn i { color: #2563EB; /* blue-600 */ }
+.delete-btn i { color: #EF4444; /* red-500 */ }
+.view-btn i { color: #10B981; /* green-500 */ } /* For view family/household */
+.add-household-to-family-btn i { color: #10B981; } /* green-500 */
+
+/* Pagination button styles */
+#prevPageBtn, #nextPageBtn {
+    background-color: #e5e7eb; /* gray-200 */
+    color: #374151; /* gray-700 */
+    padding: 0.5rem 1rem; /* Adjusted padding */
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.2s ease-in-out;
+    font-weight: 600;
+    font-size: 0.875rem; /* text-sm */
+}
+
+#prevPageBtn:hover, #nextPageBtn:hover {
+    background-color: #d1d5db; /* gray-300 */
+}
+
+#prevPageBtn:disabled, #nextPageBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Logo Styling - Consistent with individuals.css */
+#logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb; /* Light border around logo */
+}
+
+/* Adjust line height for specific text sizes if needed, from individuals.css */
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.2rem !important; /* Standard line-height for text-xl */
+    padding: 0px 0px 10px 0px;
+}
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+/* Sidebar Navigation Hover Effect */
+aside nav a {
+    color: var(--text-light); /* Default text color for sidebar links */
+}
+
+aside nav a:hover {
+    background-color: var(--secondary-green); /* Use secondary green for hover */
+    color: var(--text-light);
+}
+
+/* Ensure selected nav item remains highlighted */
+aside nav a.bg-secondary-green {
+    color: var(--text-light);
+}
+
+/* Modal header with close button */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2, .modal-header h3 {
+    flex-grow: 1; /* Allows title to take available space */
+    text-align: left; /* Align title to left */
+}
+
+.modal-header button {
+    margin-left: auto; /* Pushes the close button to the right */
+}
+
+/* View Details Modal Styling */
+.details-group {
+    display: flex;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+.details-label {
+    font-weight: 600; /* font-semibold */
+    margin-right: 0.5rem;
+    color: #4b5563; /* gray-600 */
+    min-width: 150px; /* Ensures labels align somewhat */
+}
+.details-value {
+    color: #1f2937; /* gray-900 */
+    flex-grow: 1;
+    word-wrap: break-word; /* Ensures long text wraps */
+}
+
+/* Responsive adjustments for view details */
+@media (max-width: 640px) { /* Small screens */
+    .details-group {
+        flex-direction: column; /* Stack label and value vertically */
+        margin-bottom: 1rem;
+    }
+    .details-label {
+        min-width: unset;
+        margin-bottom: 0.25rem;
+    }
+}
+
+
+#mobileMenuButton, #addNewFamilyBtn {
+    background-color: var(--primary-dark-green);
+}
+
+
+.sidebar-open #mobileMenuButton {
+    display: none !important;
+}
+
+#mainSidebar {
+    transition: transform 0.3s;
+}
+#mainSidebar.open {
+    transform: translateX(0) !important;
+}
+#mobileMenuOverlay {
+    display: none;
+}
+#mobileMenuOverlay.open {
+    display: block;
+}
+@media (min-width: 1024px) {
+    #mainSidebar {
+        transform: translateX(0) !important;
+        position: relative;
+    }
+    #mobileMenuButton,
+    #mobileMenuOverlay {
+        display: none !important;
+    }
+}
+body.overflow-hidden-mobile {
+    overflow: hidden;
+}

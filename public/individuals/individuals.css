@@ -1,0 +1,215 @@
+/* Global Background Color */
+        body {
+            background-color: #f3f4f6 !important; /* Light Grey Background */
+        }
+
+        /* Custom colors to match the theme */
+        :root {
+            --primary-dark-green: #1E4F39; /* Darker green for sidebar and header */
+            --secondary-green: #2F7C56; /* Slightly lighter green for cards/buttons */
+            --light-green: #4CAF50; /* A general green, if needed */
+            --text-light: #F3F4F6; /* Light gray for text on dark backgrounds */
+            --text-dark: #374151; /* Dark gray for text on light backgrounds */
+            --text-medium: #4b5563; /* Medium gray for labels */
+            --text-strong: #1a202c; /* Strong dark for values */
+            --border-gray: #d1d5db; /* A standard border color */
+            --background-light: #f9fafb; /* Light background for inputs/cards */
+        }
+        .bg-primary-dark-green { background-color: var(--primary-dark-green); }
+        .bg-secondary-green { background-color: var(--secondary-green); }
+        .text-text-light { color: var(--text-light); }
+        .text-text-dark { color: var(--text-dark); }
+        .ring-secondary-green:focus {
+            --tw-ring-color: var(--secondary-green);
+        }
+
+        #logo {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 50%;
+          margin-right: 10px;
+          object-fit: cover;
+          border: 2px solid #e5e7eb;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.2rem !important;
+            padding: 0px 0px 10px 0px;
+        }
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem;
+        }
+
+        /* --- Styles for Modals (Add/Edit and View) --- */
+
+        /* General modal field styling for Add/Edit Individual Modal */
+        #individualModal input[type="text"],
+        #individualModal input[type="email"],
+        #individualModal input[type="number"],
+        #individualModal input[type="date"],
+        #individualModal select,
+        #individualModal textarea {
+            color: var(--text-strong) !important; /* Force very dark text color for inputs */
+            background-color: var(--background-light) !important; /* Ensure light background for inputs */
+            border-color: var(--border-gray) !important; /* Ensure consistent border */
+            padding: 0.625rem 0.875rem !important; /* Slightly more padding for input fields */
+            border-radius: 0.375rem !important; /* Tailwind 'rounded-md' */
+            font-size: 0.875rem !important; /* Tailwind 'text-sm' */
+        }
+
+        /* Style for placeholders to make them visible but distinct */
+        #individualModal input::placeholder,
+        #individualModal textarea::placeholder {
+            color: var(--text-medium) !important; /* Make placeholder text clearer */
+            opacity: 1 !important; /* Ensure placeholder is not faded out by default browser styles */
+        }
+
+        /* Improve readability for the specific modal labels */
+        #individualModal label {
+            color: var(--text-medium) !important; /* Apply medium gray to modal labels */
+            font-weight: 500 !important; /* Make labels slightly bolder */
+        }
+
+        /* --- Styles for the View Individual Details Modal --- */
+
+        /* This is the container that will be a grid of details-group */
+        #individualDetailsContent {
+            background-color: #ffffff; /* White background for the content box itself */
+            padding: 1.5rem; /* Increased padding */
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            line-height: 1.5; /* Standard line spacing */
+            display: grid; /* Use grid for main layout within content */
+            grid-template-columns: 1fr; /* Default to single column */
+            gap: 1rem 1.5rem; /* Gaps between detail groups */
+        }
+
+        /* Media query for larger screens to make it two columns */
+        @media (min-width: 768px) { /* md breakpoint */
+            #individualDetailsContent {
+                grid-template-columns: 1fr 1fr; /* Two columns for content on wider screens */
+            }
+        }
+
+        /* A flex container for each label-value pair within the view modal */
+        .details-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.25rem; /* Small space between field groups */
+        }
+
+        .details-label {
+            font-weight: 600; /* Bolder label for details */
+            color: var(--text-medium); /* Label color */
+            margin-bottom: 0.25rem; /* Small space between label and value */
+            text-align: left; /* Align labels to the left */
+        }
+
+        .details-value {
+            color: var(--text-strong); /* Value color */
+            font-weight: 400;
+            word-break: break-word;
+            background-color: var(--background-light); /* Light background for value fields */
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            border: 1px solid var(--border-gray);
+            min-height: 2.5rem; /* Ensure minimum height for consistency */
+            display: flex; /* Use flex to vertically align content if it's single line */
+            align-items: center; /* Vertically center single line content */
+        }
+
+        .details-section-heading {
+            grid-column: 1 / -1; /* Span full width in grid */
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700; /* Bolder for headings */
+            color: var(--primary-dark-green);
+            border-bottom: 2px solid var(--primary-dark-green);
+            padding-bottom: 0.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-align: left; /* Align section heading to left again for form-like feel */
+            background-color: transparent; /* No background */
+            border-radius: 0; /* No border radius */
+            padding-top: 0; /* No top padding */
+        }
+        .details-section-heading:first-child {
+            margin-top: 0.5rem; /* Adjusted for tighter first section */
+            border-bottom: 1px solid var(--border-gray); /* Lighter border for first heading */
+        }
+
+        /* Specific styling for table header text color */
+        .min-w-full thead th {
+            color: var(--text-dark); /* Ensure table headers are dark */
+        }
+
+
+
+        /* Logo Styling - Consistent with individuals.css */
+#logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb; /* Light border around logo */
+}
+
+/* Adjust line height for specific text sizes if needed, from individuals.css */
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.2rem !important; /* Standard line-height for text-xl */
+    padding: 0px 0px 10px 0px;
+}
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+/* Sidebar Navigation Hover Effect */
+aside nav a {
+    color: var(--text-light); /* Default text color for sidebar links */
+}
+
+aside nav a:hover {
+    background-color: var(--secondary-green); /* Use secondary green for hover */
+    color: var(--text-light); /* Ensure text remains light */
+}
+
+/* Add this to your CSS file or inside a <style> tag */
+#mainSidebar.open { transform: translateX(0) !important; }
+#mobileMenuOverlay.open { display: block !important; }
+body.overflow-hidden-mobile { overflow: hidden !important; }
+
+/* Add to individuals.css */
+@media (max-width: 640px) {
+  table.min-w-full, thead, tbody, th, td, tr {
+    display: block !important;
+    width: 100% !important;
+  }
+  thead {
+    display: none !important;
+  }
+  tr {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+    background: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    padding: 1rem 0.5rem;
+  }
+  td {
+    padding: 0.5rem 1rem !important;
+    text-align: left !important;
+    position: relative;
+  }
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #4b5563;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.95em;
+  }
+}
